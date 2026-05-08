@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulaski County Property Tax Guide 2026–2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8B6914;
+    --ink: #1A1A1A;
+    --ink-mid: #3D3D3D;
+    --ink-soft: #6B6B6B;
+    --cream: #FAF8F2;
+    --cream-dark: #F0EBD8;
+    --white: #FFFFFF;
+    --rule: rgba(201,168,76,0.3);
+    --red-accent: #8B2020;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: var(--white);
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    max-width: 700px;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    border-left: 1px solid rgba(201,168,76,0.4);
+    padding-left: 20px;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--gold);
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* LAYOUT */
+  .page { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+  /* SECTION */
+  .section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
+  .section:last-child { border-bottom: none; }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .section-intro {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  /* DIVIDER */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 18px;
+    letter-spacing: 12px;
+    margin: 0 0 40px;
+    opacity: 0.6;
+  }
+
+  /* ALERT BOX */
+  .alert {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 28px 36px;
+    margin-bottom: 40px;
+    border-left: 3px solid var(--gold);
+    position: relative;
+  }
+  .alert-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .alert p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+  }
+  .alert strong { color: var(--gold); font-weight: 500; }
+
+  /* CARDS GRID */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 6px;
+    padding: 28px 28px 24px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--gold-light); }
+  .card-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--cream-dark);
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    line-height: 1;
+  }
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .card-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--ink); stroke-width: 2; }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .card p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold), var(--cream-dark));
+  }
+  .tl-item { position: relative; margin-bottom: 36px; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+  }
+  .tl-item.critical::before { background: var(--red-accent); }
+  .tl-date {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 4px;
+  }
+  .tl-item.critical .tl-date { color: var(--red-accent); }
+  .tl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .tl-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* LAW CITATION */
+  .citation {
+    background: var(--cream-dark);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border-left: 2px solid var(--gold);
+  }
+  .citation-code {
+    font-family: 'Inter', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .citation p { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+
+  /* CONTACT TABLE */
+  .contact-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  .contact-table thead tr { border-bottom: 2px solid var(--gold); }
+  .contact-table th {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    padding: 0 0 12px;
+    text-align: left;
+  }
+  .contact-table th:not(:first-child) { padding-left: 24px; }
+  .contact-table td { padding: 16px 0; border-bottom: 1px solid var(--cream-dark); font-size: 14px; color: var(--ink-mid); vertical-align: top; }
+  .contact-table td:not(:first-child) { padding-left: 24px; }
+  .contact-table td:first-child { font-weight: 500; color: var(--ink); }
+  .contact-table a { color: var(--gold-dark); text-decoration: none; }
+  .contact-table a:hover { text-decoration: underline; }
+
+  /* PULLQUOTE */
+  .pullquote {
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 36px 0;
+    margin: 48px 0;
+    text-align: center;
+  }
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* STEPS LIST */
+  .steps { counter-reset: steps; }
+  .step { display: flex; gap: 24px; margin-bottom: 28px; align-items: flex-start; }
+  .step-num {
+    counter-increment: steps;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--gold-dark);
+    flex-shrink: 0;
+    background: var(--white);
+  }
+  .step-num::before { content: counter(steps); }
+  .step-body h4 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .step-body p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* EXEMPTION HIGHLIGHT */
+  .exemption {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-top: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+  }
+  .exemption-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .exemption h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .exemption p { font-size: 15px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .exemption ul { list-style: none; padding: 0; }
+  .exemption ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    font-size: 14px;
+    color: var(--ink-mid);
+    padding-left: 20px;
+    position: relative;
+  }
+  .exemption ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 40px 60px;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+  }
+  footer strong { color: var(--gold); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 48px 24px 40px; }
+    .hero h1 { font-size: 34px; }
+    .hero-stats { gap: 24px; }
+    .page { padding: 0 24px; }
+    footer { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="page">
+    <p class="hero-eyebrow">Pulaski County, Virginia · Property Tax Guide</p>
+    <h1>Your Rights & Strategy for the 2027 Reassessment</h1>
+    <p class="hero-sub">A complete guide for property owners navigating Pulaski County's upcoming reassessment cycle — from appealing your assessment to demanding the equalized tax rate before the Board of Supervisors.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">21.6%</span>
+        <span class="hero-stat-label">Median price increase (past year)</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">$262K</span>
+        <span class="hero-stat-label">Median sale price, March 2026</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">$0.74</span>
+        <span class="hero-stat-label">Current tax rate (unchanged since 2021)</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2027</span>
+        <span class="hero-stat-label">Year of the decisive vote</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT'S HAPPENING -->
+<div class="page">
+  <div class="section">
+    <p class="section-eyebrow">The Situation</p>
+    <h2 class="section-title">Why This Reassessment Matters More Than Any Before It</h2>
+    <p class="section-intro">Pulaski County operates on a six-year property reassessment cycle. The last one took effect in 2021. In that time, median home prices have surged — meaning 2027 assessments will reflect six years of accumulated appreciation in a single adjustment.</p>
+
+    <div class="alert">
+      <p class="alert-label">Critical Understanding</p>
+      <p>The equalized rate is <strong>not a tax cut</strong>. It is the rate that keeps your actual tax bill the same despite higher assessed values. Maintaining the $0.74 rate after a large reassessment is, by definition, <strong>a tax increase</strong> — one that bypasses voters entirely. Virginia Code § 58.1-3321 ("Truth in Taxation") is your primary legal weapon.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <span class="card-number">01</span>
+        <h3>Field Work Underway</h3>
+        <p>Vision Government Solutions began field work in October 2025. New assessed values are being prepared now. Do not wait for your notice.</p>
+      </div>
+      <div class="card">
+        <span class="card-number">02</span>
+        <h3>The Rate Is Separate</h3>
+        <p>Your assessment determines value. The tax <em>rate</em> — set by the Board of Supervisors in spring 2027 — determines what you actually pay. These are two distinct battles.</p>
+      </div>
+      <div class="card">
+        <span class="card-number">03</span>
+        <h3>Electoral Timing</h3>
+        <p>All five supervisors face election in November 2027 — after the spring 2027 rate decision. Create accountability pressure now, before they vote.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <p class="section-eyebrow">Calendar of Action</p>
+    <h2 class="section-title">Your Critical Window: Now Through Spring 2027</h2>
+    <p class="section-intro">Every stage below has a specific action you should take. Missing the informal hearing forfeits your easiest avenue for relief.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-date">Now – Fall 2026</p>
+        <p class="tl-title">Field Data Collection by Vision</p>
+        <p class="tl-desc">Request your Property Record Card from the Commissioner of the Revenue. Document any errors in square footage, bedrooms, bathrooms, garage spaces, or condition. Use the county GIS Parcel Viewer at pulaskicounty.org/parcels.</p>
+      </div>
+      <div class="tl-item critical">
+        <p class="tl-date">November 2026</p>
+        <p class="tl-title">Assessment Notices Mailed</p>
+        <p class="tl-desc">Review immediately upon receipt. Compare your new value to your Property Record Card and comparable properties. Begin assembling appeal evidence: photographs, comps, repair records.</p>
+      </div>
+      <div class="tl-item critical">
+        <p class="tl-date">November – December 2026</p>
+        <p class="tl-title">Informal Hearings with Vision</p>
+        <p class="tl-desc">This is your fastest, cheapest, and most effective path. Contact Vision's Reassessment Office: (540) 994-2427 / reassessment@pulaskicounty.org. Bring your Property Record Card, photos, and comparable data.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">Early 2027</p>
+        <p class="tl-title">Board of Equalization Hearings</p>
+        <p class="tl-desc">If the informal review fails, appeal to the Board of Equalization — Circuit Court-appointed citizens with authority to increase, decrease, or affirm any assessment. Under Va. Code § 58.1-3331, you're entitled to all assessor data at least 45 days before your hearing.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">Jan 1 – Apr 1, 2027</p>
+        <p class="tl-title">Elderly & Disabled Relief Window</p>
+        <p class="tl-desc">Ensure all eligible neighbors apply. The relief cap is currently $300 — dramatically insufficient. Flooding this program is both a personal benefit and a political act that reduces the county's expected revenue windfall.</p>
+      </div>
+      <div class="tl-item critical">
+        <p class="tl-date">February – May 2027</p>
+        <p class="tl-title">Budget Process & Rate Decision</p>
+        <p class="tl-desc">The Board holds public comment at every regular meeting — the fourth Monday of each month at 7 p.m. Pack the room during budget hearings. Organized, sustained presence changes political calculus. This is the decisive moment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHALLENGING YOUR ASSESSMENT -->
+  <div class="section">
+    <p class="section-eyebrow">Challenging Your Assessment</p>
+    <h2 class="section-title">Three Paths to Relief</h2>
+    <p class="section-intro">Virginia law provides a clear escalating appeals process. Start at Step 1 and proceed only if necessary. The informal hearing is free; Circuit Court is not.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Factual Error Correction</h4>
+          <p>Request your Property Record Card and review for wrong square footage, incorrect bedroom or bathroom counts, non-existent improvements, unrecorded deterioration, or misclassified land use. Virginia Code § 58.1-3981 gives the County Assessor authority to correct factual errors immediately. This is the fastest and cleanest path.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Informal Appeal with Vision Government Solutions</h4>
+          <p>During the November/December 2026 hearing period, meet directly with Vision assessors. Bring your Property Record Card, photographs, and comparable property data from the county GIS Parcel Viewer. Vision is contractually required to consider factual evidence. This is free and preserves your options.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Board of Equalization</h4>
+          <p>Three to five Circuit Court-appointed citizens. Hearings are public. Under Va. Code § 58.1-3331, you are entitled to all assessment records and data at least 45 days before your hearing. If the assessor fails to provide this within five days of your hearing, they cannot use that data against you.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>Circuit Court Appeal</h4>
+          <p>Under Va. Code § 58.1-3370. The most powerful and most expensive option. Property owners sharing similar grievances — such as an entire neighborhood assessed disproportionately — should consider pooling resources with a shared attorney. The threat of mass litigation has historically produced administrative concessions before cases are heard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE RATE BATTLE -->
+  <div class="section">
+    <p class="section-eyebrow">The Rate Battle</p>
+    <h2 class="section-title">Where the Larger War Is Won or Lost</h2>
+    <p class="section-intro">The assessment fight is important, but the tax rate decision is where you can protect every property owner in the county simultaneously.</p>
+
+    <div class="pullquote">
+      <p>"Virginia Code § 58.1-3321 requires you to adopt the equalized rate unless you hold a separate public hearing and vote to explicitly override it. I am asking this Board to adopt the mathematically derived equalized rate for tax year 2027 and to reject any budget proposal that requires a rate above that level."</p>
+    </div>
+
+    <div class="citation">
+      <p class="citation-code">Va. Code § 58.1-3321 · "Truth in Taxation"</p>
+      <p>When a general reassessment would result in an increase of 1% or more in total real property taxes collected, the county must automatically reduce the tax rate to a "revenue-neutral equalized rate" — the rate that produces no more than 101% of the prior year's collections. The Board can override this only by holding a separate public hearing (which cannot be combined with the budget hearing), publishing notice in the newspaper in a display ad no smaller than 1/8-page with an 18-point headline, and voting affirmatively. That public hearing is your primary pressure point.</p>
+    </div>
+
+    <div class="citation">
+      <p class="citation-code">Va. Code § 58.1-3253 · Annual or Biennial Reassessment</p>
+      <p>Any county may adopt annual or biennial assessments by ordinance. Demand the Board transition to biennial reassessment after 2027. This eliminates the compounding "assessment shock" of six-year cycles and requires transparent rate decisions more frequently.</p>
+    </div>
+
+    <p style="font-size: 15px; color: var(--ink-soft); margin-bottom: 24px; line-height: 1.8;">When appearing before the Board, ask specifically: What is the projected annual operating cost of the Sportsplex once it opens in fall 2026, and how much will come from general funds vs. earned revenue? Has the school system maximized available state and federal grant funding before requesting additional local tax support?</p>
+  </div>
+
+  <!-- EXEMPTIONS -->
+  <div class="section">
+    <p class="section-eyebrow">Tax Relief Programs</p>
+    <h2 class="section-title">Exemptions That Are Dramatically Underutilized</h2>
+    <p class="section-intro">The county's existing relief programs are leaving money on the table. Flooding these programs is both a personal financial benefit and a collective political act.</p>
+
+    <div class="exemption">
+      <span class="exemption-badge">Constitutionally Guaranteed</span>
+      <h3>100% Disabled Veteran Exemption</h3>
+      <p>Under Virginia Code § 58.1-3219.5 and Article X, Section 6-A of the Virginia Constitution, any veteran rated by the VA as 100% permanently and totally disabled pays zero real estate tax on their principal residence — regardless of income or net worth. There are no income limits and no asset caps.</p>
+      <ul>
+        <li>Surviving spouses of 100% disabled veterans (if not remarried, occupying as principal residence)</li>
+        <li>Surviving spouses of service members killed in the line of duty (effective January 1, 2025)</li>
+        <li>Veterans rated less than 100% but compensated at 100% due to individual unemployability (IU), provided they also have a permanent and total rating</li>
+        <li>Surviving spouses of first responders (law enforcement, firefighters, EMS) killed in the line of duty</li>
+      </ul>
+    </div>
+
+    <div class="exemption">
+      <span class="exemption-badge">Reform Urgently Needed</span>
+      <h3>Elderly & Disabled Relief — Cap Must Be Raised</h3>
+      <p>Pulaski County's program is currently capped at $300 — a limit rendered almost meaningless against 2027 assessment values. In 2024, the average exemption was approximately $255, with roughly 775 qualified households. Total program cost: approximately $197,625 — less than one-tenth of one percent of annual real estate tax revenue.</p>
+      <ul>
+        <li>Demand the Board raise the maximum relief cap to at least $600, doubling the current cap</li>
+        <li>Index the cap automatically to the percentage increase in county-wide assessed values after each reassessment</li>
+        <li>Raise the qualifying income threshold from $30,000 to $40,000 to reflect 2025 cost-of-living realities</li>
+        <li>Application window: January 1 – April 1 each year. Contact the Commissioner of Revenue</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="section">
+    <p class="section-eyebrow">Key Contacts</p>
+    <h2 class="section-title">Who to Contact & When</h2>
+    <p class="section-intro">Every stage of this process has a specific office or individual responsible. Use these contacts proactively — do not wait to receive notices.</p>
+
+    <table class="contact-table">
+      <thead>
+        <tr>
+          <th>Office</th>
+          <th>Authority</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Board of Supervisors</td>
+          <td>Tax rate, budget decisions</td>
+          <td><a href="mailto:bos@pulaskicounty.org">bos@pulaskicounty.org</a></td>
+        </tr>
+        <tr>
+          <td>Commissioner of Revenue</td>
+          <td>Assessment records, exemptions</td>
+          <td>(540) 980-7750</td>
+        </tr>
+        <tr>
+          <td>County Assessor</td>
+          <td>Property Record Cards, factual errors</td>
+          <td>(540) 980-7753 / <a href="mailto:assessor@pulaskicounty.org">assessor@pulaskicounty.org</a></td>
+        </tr>
+        <tr>
+          <td>Vision Government Solutions</td>
+          <td>Informal appeal hearings</td>
+          <td>(540) 994-2427 / <a href="mailto:reassessment@pulaskicounty.org">reassessment@pulaskicounty.org</a></td>
+        </tr>
+        <tr>
+          <td>Pulaski County Circuit Court</td>
+          <td>Final assessment appeal</td>
+          <td>(540) 980-7825</td>
+        </tr>
+        <tr>
+          <td>The Patriot (local newspaper)</td>
+          <td>Media pressure, public notices</td>
+          <td><a href="https://pcpatriot.com" target="_blank">pcpatriot.com</a></td>
+        </tr>
+        <tr>
+          <td>GIS Parcel Viewer</td>
+          <td>Property records, comparables</td>
+          <td><a href="https://pulaskicounty.org/parcels" target="_blank">pulaskicounty.org/parcels</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Pulaski County Property Tax Guide · May 2026</strong><br>
+  Based on Pulaski County public records, Virginia statutory law as currently enacted, and publicly available market data as of May 2026.<br>
+  This document is educational in nature and does not constitute legal advice. Property owners facing specific assessment disputes should consult a licensed Virginia attorney.
+</footer>
+
+</body>
+</html>
